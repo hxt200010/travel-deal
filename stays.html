@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Travel Deals - Stays</title>
+    <link rel="stylesheet" href="mystyle.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Stays</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="stays.html">Stays</a>
+        <a href="flights.html">Flights</a>
+        <a href="cars.html">Cars</a>
+        <a href="cruises.html">Cruises</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </header>
+
+    <main>
+      <p id="datetime"></p>
+      <form id="stayForm">
+        <label>City: <input type="text" id="stayCity" /></label><br />
+        <label>Check-in: <input type="date" id="checkIn" /></label><br />
+        <label>Check-out: <input type="date" id="checkOut" /></label><br />
+        <label>Adults: <input type="number" id="adults" min="0" /></label><br />
+        <label>Children: <input type="number" id="children" min="0" /></label
+        ><br />
+        <label>Infants: <input type="number" id="infants" min="0" /></label
+        ><br />
+        <button type="button" onclick="validateStays()">Search</button>
+      </form>
+      <div id="stayResult"></div>
+    </main>
+  </body>
+</html>

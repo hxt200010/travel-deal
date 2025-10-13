@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Travel Deals - Flights</title>
+    <link rel="stylesheet" href="mystyle.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Flights</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="stays.html">Stays</a>
+        <a href="flights.html">Flights</a>
+        <a href="cars.html">Cars</a>
+        <a href="cruises.html">Cruises</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </header>
+
+    <main>
+      <p id="datetime"></p>
+      <form id="flightForm">
+        <label>
+          Trip type:
+          <select id="tripType" onchange="toggleReturnDate()">
+            <option value="oneway">One Way</option>
+            <option value="round">Round Trip</option>
+          </select> </label
+        ><br />
+
+        <label>Origin: <input type="text" id="origin" /></label><br />
+        <label>Destination: <input type="text" id="destination" /></label><br />
+        <label>Departure Date: <input type="date" id="departDate" /></label
+        ><br />
+        <label id="returnLabel" style="display: none"
+          >Return Date: <input type="date" id="returnDate" /></label
+        ><br />
+
+        <label
+          >Adults: <input type="number" id="fAdults" min="0" max="4" /></label
+        ><br />
+        <label
+          >Children:
+          <input type="number" id="fChildren" min="0" max="4" /></label
+        ><br />
+        <label
+          >Infants: <input type="number" id="fInfants" min="0" max="4" /></label
+        ><br />
+
+        <button type="button" onclick="validateFlights()">Search</button>
+      </form>
+      <div id="flightResult"></div>
+    </main>
+  </body>
+</html>

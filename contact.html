@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="mystyle.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Contact Us</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="stays.html">Stays</a>
+        <a href="flights.html">Flights</a>
+        <a href="cars.html">Cars</a>
+        <a href="cruises.html">Cruises</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </header>
+
+    <main>
+      <p id="datetime"></p>
+      <form id="contactForm">
+        <label>First Name: <input type="text" id="firstName" /></label><br />
+        <label>Last Name: <input type="text" id="lastName" /></label><br />
+        <label>Phone: <input type="text" id="phone" /></label><br />
+        <label>Email: <input type="text" id="email" /></label><br />
+        <label
+          >Gender: <input type="radio" name="gender" value="male" /> Male
+          <input type="radio" name="gender" value="female" /> Female </label
+        ><br />
+        <label>Comment:<br /><textarea id="comment"></textarea></label><br />
+        <button type="button" onclick="validateContact()">Submit</button>
+      </form>
+      <div id="contactResult"></div>
+    </main>
+  </body>
+</html>
