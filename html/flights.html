@@ -3,55 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <title>Travel Deals - Flights</title>
-    <link rel="stylesheet" href="mystyle.css" />
-    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/script.js" defer></script>
   </head>
   <body>
-    <header>
-      <h1>Flights</h1>
-      <nav>
+    <header class="main-header">
+      <div class="logo">✈️ Travel Deals</div>
+      <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="stays.html">Stays</a>
-        <a href="flights.html">Flights</a>
+        <a href="flights.html" class="active">Flights</a>
         <a href="cars.html">Cars</a>
         <a href="cruises.html">Cruises</a>
         <a href="contact.html">Contact Us</a>
       </nav>
     </header>
 
-    <main>
-      <p id="datetime"></p>
-      <form id="flightForm">
-        <label>
-          Trip type:
-          <select id="tripType" onchange="toggleReturnDate()">
-            <option value="oneway">One Way</option>
-            <option value="round">Round Trip</option>
-          </select> </label
-        ><br />
+    <!-- ===== Hero Section ===== -->
+    <section class="flight-hero">
+      <div class="overlay"></div>
+      <div class="flight-hero-content">
+        <h1>Book Your Dream Flight</h1>
+        <p>
+          Fly across the world in comfort — compare routes and deals instantly.
+        </p>
+        <p id="datetime"></p>
+      </div>
+    </section>
 
-        <label>Origin: <input type="text" id="origin" /></label><br />
-        <label>Destination: <input type="text" id="destination" /></label><br />
-        <label>Departure Date: <input type="date" id="departDate" /></label
-        ><br />
-        <label id="returnLabel" style="display: none"
-          >Return Date: <input type="date" id="returnDate" /></label
-        ><br />
+    <!-- ===== Booking Form Section ===== -->
+    <main class="flight-section">
+      <div class="flight-form-card">
+        <h2>Search Flights</h2>
+        <form id="flightForm">
+          <div class="form-grid">
+            <div class="form-item">
+              <label>Trip Type</label>
+              <select id="tripType" onchange="toggleReturnDate()">
+                <option value="oneway">One Way</option>
+                <option value="round">Round Trip</option>
+              </select>
+            </div>
 
-        <label
-          >Adults: <input type="number" id="fAdults" min="0" max="4" /></label
-        ><br />
-        <label
-          >Children:
-          <input type="number" id="fChildren" min="0" max="4" /></label
-        ><br />
-        <label
-          >Infants: <input type="number" id="fInfants" min="0" max="4" /></label
-        ><br />
+            <div class="form-item">
+              <label>Origin</label>
+              <input type="text" id="origin" placeholder="Enter city..." />
+            </div>
 
-        <button type="button" onclick="validateFlights()">Search</button>
-      </form>
-      <div id="flightResult"></div>
+            <div class="form-item">
+              <label>Destination</label>
+              <div class="autocomplete">
+                <input
+                  type="text"
+                  id="destination"
+                  placeholder="Enter city..."
+                  autocomplete="off"
+                />
+                <div id="suggestions" class="suggestions"></div>
+              </div>
+            </div>
+
+            <div class="form-item">
+              <label>Departure Date</label>
+              <input type="date" id="departDate" />
+            </div>
+
+            <div class="form-item" id="returnLabel" style="display: none">
+              <label>Return Date</label>
+              <input type="date" id="returnDate" />
+            </div>
+
+            <div class="form-item">
+              <label>Adults</label>
+              <input type="number" id="fAdults" min="0" max="4" />
+            </div>
+
+            <div class="form-item">
+              <label>Children</label>
+              <input type="number" id="fChildren" min="0" max="4" />
+            </div>
+
+            <div class="form-item">
+              <label>Infants</label>
+              <input type="number" id="fInfants" min="0" max="4" />
+            </div>
+          </div>
+
+          <button type="button" class="search-btn" onclick="validateFlights()">
+            🔍 Search Flights
+          </button>
+        </form>
+        <div id="flightResult"></div>
+      </div>
     </main>
+
+    <footer>
+      <p>© 2025 Travel Deals. All rights reserved.</p>
+    </footer>
   </body>
 </html>

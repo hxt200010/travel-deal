@@ -164,3 +164,149 @@ $(function () {
     );
   });
 });
+
+// ===================== ✈️ Destination Auto-Suggestions =====================
+const destinations = [
+  "Dallas Fort Worth (DFW)",
+  "Austin (AUS)",
+  "Houston (IAH)",
+  "San Antonio (SAT)",
+  "Los Angeles (LAX)",
+  "San Francisco (SFO)",
+  "San Diego (SAN)",
+  "Sacramento (SMF)",
+  "El Paso (ELP)",
+  "Long Beach (LGB)",
+  "Palm Springs (PSP)"
+];
+
+const destInput = document.getElementById("destination");
+const suggestionsBox = document.getElementById("suggestions");
+
+if (destInput && suggestionsBox) {
+  destInput.addEventListener("input", () => {
+    const query = destInput.value.toLowerCase();
+    suggestionsBox.innerHTML = "";
+
+    if (query.length === 0) {
+      suggestionsBox.style.display = "none";
+      return;
+    }
+
+    const matched = destinations.filter(d =>
+      d.toLowerCase().includes(query)
+    );
+
+    if (matched.length > 0) {
+      matched.forEach(item => {
+        const div = document.createElement("div");
+        div.textContent = item;
+        div.classList.add("suggestion-item");
+        div.addEventListener("click", () => {
+          destInput.value = item;
+          suggestionsBox.innerHTML = "";
+          suggestionsBox.style.display = "none";
+        });
+        suggestionsBox.appendChild(div);
+      });
+      suggestionsBox.style.display = "block";
+    } else {
+      suggestionsBox.style.display = "none";
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!suggestionsBox.contains(e.target) && e.target !== destInput) {
+      suggestionsBox.style.display = "none";
+    }
+  });
+}
+
+
+
+
+
+
+// ===================== 🌍 Homepage Search Suggestions & Results =====================
+const destinationsList = [
+  "Dallas Fort Worth (DFW)",
+  "Austin (AUS)",
+  "Houston (IAH)",
+  "San Antonio (SAT)",
+  "Los Angeles (LAX)",
+  "San Francisco (SFO)",
+  "San Diego (SAN)",
+  "Sacramento (SMF)",
+  "El Paso (ELP)",
+  "Long Beach (LGB)",
+  "Palm Springs (PSP)"
+];
+
+const searchInput = document.getElementById("searchInput");
+const homeSuggestions = document.getElementById("homeSuggestions");
+const searchResults = document.getElementById("searchResults");
+const searchBtn = document.getElementById("searchBtn");
+
+if (searchInput && homeSuggestions) {
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    homeSuggestions.innerHTML = "";
+
+    if (query.length === 0) {
+      homeSuggestions.style.display = "none";
+      return;
+    }
+
+    const matches = destinationsList.filter(dest =>
+      dest.toLowerCase().includes(query)
+    );
+
+    if (matches.length > 0) {
+      matches.forEach(match => {
+        const item = document.createElement("div");
+        item.textContent = match;
+        item.classList.add("suggestion-item");
+        item.addEventListener("click", () => {
+          searchInput.value = match;
+          homeSuggestions.style.display = "none";
+        });
+        homeSuggestions.appendChild(item);
+      });
+      homeSuggestions.style.display = "block";
+    } else {
+      homeSuggestions.style.display = "none";
+    }
+  });
+
+  document.addEventListener("click", e => {
+    if (!homeSuggestions.contains(e.target) && e.target !== searchInput) {
+      homeSuggestions.style.display = "none";
+    }
+  });
+}
+
+if (searchBtn) {
+  searchBtn.addEventListener("click", () => {
+    const selected = searchInput.value.trim();
+    const date = document.getElementById("searchDate").value;
+
+    if (!selected) {
+      alert("Please enter or select a destination!");
+      return;
+    }
+
+    searchResults.innerHTML = `
+      <div class="results-card">
+        <h3>🌴 Available Deals to ${selected}</h3>
+        <p>Departure Date: ${date || "Flexible"}</p>
+        <ul>
+          <li>✈️ Flight + Hotel Package — from $599</li>
+          <li>🏨 Hotel Only — from $249/night</li>
+          <li>🚗 Car Rentals — from $49/day</li>
+        </ul>
+      </div>
+    `;
+  });
+}
+
+
