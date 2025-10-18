@@ -64,32 +64,97 @@ function toggleReturnDate() {
 function validateFlights() {
   const origin = document.getElementById("origin").value.trim();
   const dest = document.getElementById("destination").value.trim();
-  const depart = new Date(document.getElementById("departDate").value);
-  const ret = new Date(document.getElementById("returnDate").value);
+  const departInput = document.getElementById("departDate").value;
+  const returnInput = document.getElementById("returnDate").value;
   const adults = parseInt(document.getElementById("fAdults").value) || 0;
   const children = parseInt(document.getElementById("fChildren").value) || 0;
   const infants = parseInt(document.getElementById("fInfants").value) || 0;
+  const tripType = document.getElementById("tripType").value;
 
   const validCities = [
     "Dallas", "Austin", "Houston", "San Antonio",
-    "Los Angeles", "San Francisco", "San Diego"
+    "Los Angeles", "San Francisco", "San Diego",
+    "Alaska", "Bahamas", "Europe", "Mexico"
   ];
-  const start = new Date("2024-09-01");
-  const end = new Date("2024-12-01");
 
-  if (!validCities.includes(origin) || !validCities.includes(dest))
-    return alert("Origin and destination must be cities in Texas or California.");
-  if (depart < start || depart > end)
-    return alert("Departure date must be between Sep 1 and Dec 1, 2024.");
-  if (document.getElementById("tripType").value === "round" &&
-      (ret < start || ret > end))
-    return alert("Return date must be between Sep 1 and Dec 1, 2024.");
-  if (adults > 4 || children > 4 || infants > 4)
+  const missing = [];
+
+  if (!origin) missing.push("Origin");
+  if (!dest) missing.push("Destination");
+  if (!departInput) missing.push("Departure Date");
+  if (tripType === "round" && !returnInput) missing.push("Return Date");
+  if (adults === 0 && children === 0 && infants === 0) missing.push("Passenger count");
+
+  if (missing.length > 0) {
+    return alert("Missing information: " + missing.join(", "));
+  }
+
+  if (!validCities.includes(origin) || !validCities.includes(dest)) {
+    return alert("Origin and destination list include: Dallas, Austin, Houston, San Antonio, Los Angeles, San Francisco, San Diego, Alaska, Bahamas.");
+  }
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const depart = new Date(departInput);
+  const ret = returnInput ? new Date(returnInput) : null;
+
+  if (depart < today) {
+    return alert("Departure date cannot be in the past.");
+  }
+
+  if (tripType === "round" && ret && ret < depart) {
+    return alert("Return date must be after the departure date.");
+  }
+
+  if (adults > 4 || children > 4 || infants > 4) {
     return alert("Each passenger category cannot exceed 4.");
+  }
 
   document.getElementById("flightResult").textContent =
     `✈️ Flight from ${origin} to ${dest} confirmed! (${adults} adults, ${children} children, ${infants} infants)`;
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Set today's date as min
+  const today = new Date().toISOString().split("T")[0];
+  const departInput = document.getElementById("departDate");
+  const returnInput = document.getElementById("returnDate");
+  if (departInput) departInput.min = today;
+  if (returnInput) returnInput.min = today;
+
+  departInput.addEventListener("change", () => {
+    returnInput.min = departInput.value;
+  });
+
+  // Passenger toggle logic
+  const passengerIcon = document.getElementById("passengerIcon");
+  const passengerForm = document.getElementById("passengerForm");
+
+  if (passengerIcon && passengerForm) {
+    passengerIcon.addEventListener("click", () => {
+      // Toggle with animation
+      if (passengerForm.style.display === "block") {
+        passengerForm.style.opacity = "0";
+        setTimeout(() => {
+          passengerForm.style.display = "none";
+        }, 300);
+      } else {
+        passengerForm.style.display = "block";
+        passengerForm.style.opacity = "0";
+        setTimeout(() => {
+          passengerForm.style.opacity = "1";
+        }, 10);
+      }
+    });
+  }
+});
+
+
+
+
+
+
 
 // ===================== 🏨 Stays Page Validation (No Regex) =====================
 function validateStays() {
@@ -177,7 +242,11 @@ const destinations = [
   "Sacramento (SMF)",
   "El Paso (ELP)",
   "Long Beach (LGB)",
-  "Palm Springs (PSP)"
+  "Palm Springs (PSP)",
+  "Alaska (ANC)",
+"Bahamas (NAS)",
+"Europe (LHR)",
+"Mexico (MEX)"
 ];
 
 const destInput = document.getElementById("destination");
@@ -310,3 +379,50 @@ if (searchBtn) {
 }
 
 
+
+// ===================== 🏠 Index/Home Booking Page Validation =====================
+function validateHomeBooking() {
+  const tripType = document.getElementById("tripType")?.value;
+  const origin = document.getElementById("searchInput")?.value.trim();
+  const destination = document.getElementById("destinationInput")?.value.trim();
+  const departDate = document.getElementById("searchDate")?.value;
+  const returnDate = document.getElementById("returnDate")?.value;
+  const adults = parseInt(document.getElementById("fAdults")?.value) || 0;
+  const children = parseInt(document.getElementById("fChildren")?.value) || 0;
+  const infants = parseInt(document.getElementById("fInfants")?.value) || 0;
+
+  const missing = [];
+
+  if (!tripType) missing.push("Trip Type");
+  if (!origin) missing.push("Origin");
+  if (!destination) missing.push("Destination");
+  if (!departDate) missing.push("Departure Date");
+  if (tripType === "round" && !returnDate) missing.push("Return Date");
+  if (adults === 0 && children === 0 && infants === 0) missing.push("Passenger Count");
+
+  if (missing.length > 0) {
+    return alert("Missing information: " + missing.join(", "));
+  }
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const depart = new Date(departDate);
+  const ret = returnDate ? new Date(returnDate) : null;
+
+  if (depart < today) return alert("Departure date cannot be in the past.");
+  if (tripType === "round" && ret && ret < depart)
+    return alert("Return date must be after departure date.");
+
+  // ✅ Display all entered info after validation
+  document.getElementById("searchResults").innerHTML = `
+    <div class="results-card">
+      <h3>✈️ Booking Summary</h3>
+      <p><strong>Trip Type:</strong> ${tripType === "round" ? "Round Trip" : "One Way"}</p>
+      <p><strong>Origin:</strong> ${origin}</p>
+      <p><strong>Destination:</strong> ${destination}</p>
+      <p><strong>Departure Date:</strong> ${departDate}</p>
+      ${tripType === "round" ? `<p><strong>Return Date:</strong> ${returnDate}</p>` : ""}
+      <p><strong>Passengers:</strong> ${adults} Adults, ${children} Children, ${infants} Infants</p>
+    </div>
+  `;
+}

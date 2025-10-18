@@ -24,7 +24,7 @@
         <a href="contact.html">Contact Us</a>
       </nav>
     </header>
-
+<p id="datetime"></p>
     <!-- ===== Hero Section ===== -->
     <section class="flight-hero">
       <div class="overlay"></div>
@@ -33,75 +33,88 @@
         <p>
           Fly across the world in comfort — compare routes and deals instantly.
         </p>
-        <p id="datetime"></p>
+        
       </div>
     </section>
 
     <!-- ===== Booking Form Section ===== -->
     <main class="flight-section">
-      <div class="flight-form-card">
-        <h2>Search Flights</h2>
-        <form id="flightForm">
-          <div class="form-grid">
-            <div class="form-item">
-              <label>Trip Type</label>
-              <select id="tripType" onchange="toggleReturnDate()">
-                <option value="oneway">One Way</option>
-                <option value="round">Round Trip</option>
-              </select>
-            </div>
+  <div class="flight-form-card">
+    <h2>Search Flights</h2>
 
-            <div class="form-item">
-              <label>Origin</label>
-              <input type="text" id="origin" placeholder="Enter city..." />
-            </div>
+    <form id="flightForm">
+      <div class="form-grid">
+        <div class="form-item">
+          <label>Trip Type</label>
+          <select id="tripType" onchange="toggleReturnDate()">
+            <option value="oneway">One Way</option>
+            <option value="round">Round Trip</option>
+          </select>
+        </div>
 
-            <div class="form-item">
-              <label>Destination</label>
-              <div class="autocomplete">
-                <input
-                  type="text"
-                  id="destination"
-                  placeholder="Enter city..."
-                  autocomplete="off"
-                />
-                <div id="suggestions" class="suggestions"></div>
-              </div>
-            </div>
+        <div class="form-item">
+          <label>Origin</label>
+          <input type="text" id="origin" placeholder="Enter city..." />
+        </div>
 
-            <div class="form-item">
-              <label>Departure Date</label>
-              <input type="date" id="departDate" />
-            </div>
-
-            <div class="form-item" id="returnLabel" style="display: none">
-              <label>Return Date</label>
-              <input type="date" id="returnDate" />
-            </div>
-
-            <div class="form-item">
-              <label>Adults</label>
-              <input type="number" id="fAdults" min="0" max="4" />
-            </div>
-
-            <div class="form-item">
-              <label>Children</label>
-              <input type="number" id="fChildren" min="0" max="4" />
-            </div>
-
-            <div class="form-item">
-              <label>Infants</label>
-              <input type="number" id="fInfants" min="0" max="4" />
-            </div>
+        <div class="form-item">
+          <label>Destination</label>
+          <div class="autocomplete">
+            <input type="text" id="destination" placeholder="Enter city..." autocomplete="off" />
+            <div id="suggestions" class="suggestions"></div>
           </div>
+        </div>
 
-          <button type="button" class="search-btn" onclick="validateFlights()">
-            🔍 Search Flights
-          </button>
-        </form>
-        <div id="flightResult"></div>
+        <div class="form-item">
+          <label>Departure Date</label>
+          <input type="date" id="departDate" />
+        </div>
+
+        <div class="form-item" id="returnLabel" style="display:none;">
+          <label>Return Date</label>
+          <input type="date" id="returnDate" />
+        </div>
       </div>
-    </main>
+
+      <!-- Passenger icon -->
+      <div style="text-align:center; margin-top:25px;">
+        <img
+          id="passengerIcon"
+          src="https://media.istockphoto.com/id/1425171365/vector/person-travel-with-suitcase-tourist-line-icon-vacation-journey-with-bag-vector-outline-sign.jpg?s=612x612&w=0&k=20&c=0Nv0-Br5fcfJtdyPfmUMtqnkz1dYpi5ay0jFYRpz638="
+          alt="Passengers"
+          width="45"
+          style="cursor:pointer; filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));"
+          title="Click to add passengers"
+        />
+      </div>
+
+      <!-- Hidden passenger form -->
+      <div id="passengerForm" style="
+        display:none;
+        margin-top:20px;
+        padding:20px;
+        border-radius:12px;
+        background:rgba(255,255,255,0.8);
+        backdrop-filter:blur(6px);
+        box-shadow:0 2px 10px rgba(0,0,0,0.15);
+        animation:fadeIn 0.4s ease;">
+        <label>Adults</label>
+        <input type="number" id="fAdults" min="0" max="4" />
+        <label>Children</label>
+        <input type="number" id="fChildren" min="0" max="4" />
+        <label>Infants</label>
+        <input type="number" id="fInfants" min="0" max="4" />
+      </div>
+
+      <button type="button" class="search-btn" onclick="validateFlights()">
+        🔍 Search Flights
+      </button>
+    </form>
+
+    <div id="flightResult"></div>
+  </div>
+</main>
+
 
     <footer>
       <p>© 2025 Travel Deals. All rights reserved.</p>
