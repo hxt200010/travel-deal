@@ -4,11 +4,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Travel Deals - Stays</title>
+        <title>Travel Deals - Book</title>
         <link rel="stylesheet" href="../css/style2.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="../js/script2.js" defer></script>
-        <script src="../js/flights.js" defer></script>
+        <script src="../js/book.js" defer></script>
     </head>
 
     <body>
@@ -17,9 +17,9 @@
         </div>
 
         <div class="navbar">
-            <a href="index2.html">Home</a>
+            <a href="index2.html" class="active">Home</a>
             <a href="stays2.html">Stays</a>
-            <a href="flights2.html" class="active">Flights</a>
+            <a href="flights2.html">Flights</a>
             <a href="cars2.html">Cars</a>
             <a href="cruises2.html">Cruises</a>
             <a href="contact.html">Contact Us</a>
@@ -43,39 +43,35 @@
             </div>
 
             <div class="mainContent">
-                <h2>Book Your Flight</h2>
+                <h2>Book Your Trip</h2>
 
-                <img id="passengerIcon" src="../images/passenger.jpg" alt="Passengers" width="45" title="Add passengers">
+                <form id="bookForm" class="form">
+                    <label for="bookType">Trip Type</label><br>
+                    <select id="bookType">
+                        <option value="oneway">One Way</option>
+                        <option value="round">Round Trip</option>
+                    </select><br><br>
 
-                <br><br>
+                    <label for="bookOriginCity">City</label><br>
+                    <input type="text" id="bookOriginCity" list="cities"><br><br>
 
-                <form id="flightForm" class="form" hidden>
-                    <label for="flightOriginCity">Origin City</label><br>
-                    <input type="text" id="flightOriginCity" list="cities"><br><br>
-                    
-                    <label for="flightDestinationCity">Destination City</label><br>
-                    <input type="text" id="flightDestinationCity" list="cities"><br><br>
+                    <label for="bookDestinationCity">City</label><br>
+                    <input type="text" id="bookDestinationCity" list="cities"><br><br>
 
                     <!-- Placeholder datalist to be populated by stays.js -->
                     <datalist id="cities"></datalist>
                     
-                    <label for="flightDeparture">Departure</label><br>
-                    <input type="date" id="flightDeparture" value="2024-09-01"><br><br>
+                    <label for="bookDepartureDeparting">Departure for Departing Flight</label><br>
+                    <input type="date" id="bookDepartureDeparting" value="2024-09-01"><br><br>
                     
-                    <label for="flightAdults">Adults</label><br>
-                    <input type="number" id="flightAdults" value="1" min="1"><br><br>
+                    <label id="bDALabel" for="bookDepartureArriving" hidden>Departure for Arriving Flight</label><br>
+                    <input type="date" id="bookDepartureArriving" value="2024-09-02" hidden><br><br>
 
-                    <label for="flightsChildren">Children</label><br>
-                    <input type="number" id="flightChildren" value="0" min="0"><br><br>
-
-                    <label for="flightInfants">Infants</label><br>
-                    <input type="number" id="flightInfants" value="0" min="0"><br><br>
-
-                    <button type="button" onclick="validateFlights()">Search</button>
+                    <button type="button" onclick="validateBook()">Search</button>
                 </form>
 
                 <div class="result">
-                    <p id="flightResult"></p>
+                    <p id="bookResult"></p>
                 </div>
             </div>
         </div>
