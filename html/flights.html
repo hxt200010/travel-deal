@@ -1,123 +1,88 @@
+<!-- Adam McCutcheon -->
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Travel Deals - Flights</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/script.js" defer></script>
-  </head>
-  <body>
-    <header class="main-header">
-      <div class="logo">✈️ Travel Deals</div>
-      <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="stays.html">Stays</a>
-        <a href="flights.html" class="active">Flights</a>
-        <a href="cars.html">Cars</a>
-        <a href="cruises.html">Cruises</a>
-        <a href="contact.html">Contact Us</a>
-      </nav>
-    </header>
-<p id="datetime"></p>
-    <!-- ===== Hero Section ===== -->
-    <section class="flight-hero">
-      <div class="overlay"></div>
-      <div class="flight-hero-content">
-        <h1>Book Your Dream Flight</h1>
-        <p>
-          Fly across the world in comfort — compare routes and deals instantly.
-        </p>
-        
-      </div>
-    </section>
+    <head>
+        <meta charset="UTF-8">
+        <title>Travel Deals - Stays</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="../js/script.js" defer></script>
+        <script src="../js/flights.js" defer></script>
+    </head>
 
-    <!-- ===== Booking Form Section ===== -->
-    <main class="flight-section">
-  <div class="flight-form-card">
-    <h2>Search Flights</h2>
-
-    <form id="flightForm">
-      <div class="form-grid">
-        <div class="form-item">
-          <label>Trip Type</label>
-          <select id="tripType" onchange="toggleReturnDate()">
-            <option value="oneway">One Way</option>
-            <option value="round">Round Trip</option>
-          </select>
+    <body>
+        <div class="header">
+            <h1>✈️ Travel Deals</h1>
         </div>
 
-        <div class="form-item">
-          <label>Origin</label>
-          <input type="text" id="origin" placeholder="Enter city..." />
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="stays.html">Stays</a>
+            <a href="flights.html" class="active">Flights</a>
+            <a href="cars.html">Cars</a>
+            <a href="cruises.html">Cruises</a>
+            <a href="contact.html">Contact Us</a>
         </div>
 
-        <div class="form-item">
-          <label>Destination</label>
-          <div class="autocomplete">
-            <input type="text" id="destination" placeholder="Enter city..." autocomplete="off" />
-            <div id="suggestions" class="suggestions"></div>
-          </div>
+        <div class="row">
+            <div class="sidebar">
+                <h2>Current Local Time</h2>
+
+                <p id="datetime"></p>
+
+                <h2>Customize Your View</h2>
+                
+                <label for="fontSizeRange">Font Size</label><br><br>
+                <input type="range" id="fontSizeRange" min="12" max="24" value="16">
+
+                <br><br>
+                
+                <label for="bgColorPicker">Background Color</label><br><br>
+                <input type="color" id="bgColorPicker" value="#ffffff">
+            </div>
+
+            <div class="mainContent">
+                <h2>Book Your Flight</h2>
+
+                <img id="passengerIcon" src="../images/passenger.jpg" alt="Passengers" width="45" title="Add passengers">
+
+                <br><br>
+
+                <form id="flightForm" class="form" hidden>
+                    <label for="flightOriginCity">Origin City</label><br>
+                    <input type="text" id="flightOriginCity" list="cities"><br><br>
+                    
+                    <label for="flightDestinationCity">Destination City</label><br>
+                    <input type="text" id="flightDestinationCity" list="cities"><br><br>
+
+                    <!-- Placeholder datalist to be populated by stays.js -->
+                    <datalist id="cities"></datalist>
+                    
+                    <label for="flightDeparture">Departure</label><br>
+                    <input type="date" id="flightDeparture" value="2024-09-01"><br><br>
+                    
+                    <label for="flightAdults">Adults</label><br>
+                    <input type="number" id="flightAdults" value="1" min="1"><br><br>
+
+                    <label for="flightsChildren">Children</label><br>
+                    <input type="number" id="flightChildren" value="0" min="0"><br><br>
+
+                    <label for="flightInfants">Infants</label><br>
+                    <input type="number" id="flightInfants" value="0" min="0"><br><br>
+
+                    <button type="button" onclick="validateFlights()">Search</button>
+                </form>
+
+                <div class="result">
+                    <p id="flightResult"></p>
+                </div>
+            </div>
         </div>
 
-        <div class="form-item">
-          <label>Departure Date</label>
-          <input type="date" id="departDate" />
+        <div class="footer">
+            <p>© 2025 Travel Deals. All rights reserved.</p>
+            <p>Adam McCutcheon (AMM200015), Sherwin Navai (SXN161630), Anthony Tran (HXT200010)</p>
         </div>
-
-        <div class="form-item" id="returnLabel" style="display:none;">
-          <label>Return Date</label>
-          <input type="date" id="returnDate" />
-        </div>
-      </div>
-
-      <!-- Passenger icon -->
-      <div style="text-align:center; margin-top:25px;">
-        <img
-          id="passengerIcon"
-          src="https://media.istockphoto.com/id/1425171365/vector/person-travel-with-suitcase-tourist-line-icon-vacation-journey-with-bag-vector-outline-sign.jpg?s=612x612&w=0&k=20&c=0Nv0-Br5fcfJtdyPfmUMtqnkz1dYpi5ay0jFYRpz638="
-          alt="Passengers"
-          width="45"
-          style="cursor:pointer; filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));"
-          title="Click to add passengers"
-        />
-      </div>
-
-      <!-- Hidden passenger form -->
-      <div id="passengerForm" style="
-        display:none;
-        margin-top:20px;
-        padding:20px;
-        border-radius:12px;
-        background:rgba(255,255,255,0.8);
-        backdrop-filter:blur(6px);
-        box-shadow:0 2px 10px rgba(0,0,0,0.15);
-        animation:fadeIn 0.4s ease;">
-        <label>Adults</label>
-        <input type="number" id="fAdults" min="0" max="4" />
-        <label>Children</label>
-        <input type="number" id="fChildren" min="0" max="4" />
-        <label>Infants</label>
-        <input type="number" id="fInfants" min="0" max="4" />
-      </div>
-
-      <button type="button" class="search-btn" onclick="validateFlights()">
-        🔍 Search Flights
-      </button>
-    </form>
-
-    <div id="flightResult"></div>
-  </div>
-</main>
-
-
-    <footer>
-      <p>© 2025 Travel Deals. All rights reserved.</p>
-    </footer>
-  </body>
+    </body>
 </html>

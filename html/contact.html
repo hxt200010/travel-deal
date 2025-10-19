@@ -1,67 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="../css/style2.css" />
-    <script src="../js/script2.js" defer></script>
-    <script src="../js/contact.js" defer></script>
-  </head>
-  <body>
-    <div>
-      <header class="header">
-        <h1>Contact Us</h1>
-        <div class="controls">
-          <label for="fontSizeSelect">Font Size:</label>
-          <select id="fontSizeSelect">
-            <option value="14px">Small</option>
-            <option value="16px" selected>Medium</option>
-            <option value="18px">Large</option>
-          </select>
-          <label for="bgColorSelect">Background Color:</label>
-          <select id="bgColorSelect">
-            <option value="white" selected>White</option>
-            <option value="#f0f0f0">Light Gray</option>
-            <option value="#e6f3fa">Light Blue</option>
-          </select>
+    <head>
+        <meta charset="UTF-8">
+        <title>Travel Deals - Contact Us</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/script.js" defer></script>
+        <script src="../js/contact.js" defer></script>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>✈️ Travel Deals</h1>
         </div>
-        <nav class="navbar">
-          <a href="index2.html">Home</a>
-          <a href="stays2.html">Stays</a>
-          <a href="flights2.html">Flights</a>
-          <a href="cars2.html">Cars</a>
-          <a href="cruises2.html">Cruises</a>
-          <a href="contact.html" class="active">Contact Us</a>
-        </nav>
-      </header>
-    </div>
-      
-    <div class="contacts-hero">
-      <div class="sidebar">
-        <p id="datetime"></p>
-      </div>
-      <div class="mainContent">
-        <h1>Contact Us</h1>
-        <form id="contactForm">
-          <label for="firstName">First Name:</label>
-          <input type="text" id="firstName" /><br />
-          <label for="lastName">Last Name:</label>
-          <input type="text" id="lastName" /><br />
-          <label for="phone">Phone:</label>
-          <input type="text" id="phone" /><br />
-          <label for="email">Email:</label>
-          <input type="text" id="email" /><br />
-          <div class="radio-group">
-            <label>Gender:</label>
-            <label><input type="radio" name="gender" value="male" /> Male</label>
-            <label><input type="radio" name="gender" value="female" /> Female</label>
-          </div><br />
-          <label for="comment">Comment:</label>
-          <textarea id="comment"></textarea><br />
-          <button type="button" onclick="validateContact()">Submit</button>
-        </form>
-        <div id="contactResult"></div>
-      </div>
-    </div>
-  </body>
+
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="stays.html">Stays</a>
+            <a href="flights.html">Flights</a>
+            <a href="cars.html">Cars</a>
+            <a href="cruises.html">Cruises</a>
+            <a href="contact.html" class="active">Contact Us</a>
+        </div>
+
+        <div class="row">
+            <div class="sidebar">
+                <h2>Current Local Time</h2>
+
+                <p id="datetime"></p>
+
+                <h2>Customize Your View</h2>
+                
+                <label for="fontSizeRange">Font Size</label><br><br>
+                <input type="range" id="fontSizeRange" min="12" max="24" value="16">
+
+                <br><br>
+                
+                <label for="bgColorPicker">Background Color</label><br><br>
+                <input type="color" id="bgColorPicker" value="#ffffff">
+            </div>
+
+            <div class="mainContent">
+                <h2>Contact Us</h2>
+
+                <form id="contactForm" class="form">
+                    <label for="contactFirstName">First Name</label><br>
+                    <input type="text" id="contactFirstName"><br><br>
+                    
+                    <label for="contactLastName">Last Name</label><br>
+                    <input type="text" id="contactLastName"><br><br>
+                    
+                    <label for="contactPhoneNumber">Phone Number</label><br>
+                    <input type="text" id="contactPhoneNumber"><br><br>
+
+                    <label for="contactEmail">Email Address</label><br>
+                    <input type="text" id="contactEmail"><br><br>
+                    
+                    <div class="radioGroup">
+                        <label>Gender</label><br>
+                        <label><input type="radio" name="contactGender" value="male">Male</label>
+                        <label><input type="radio" name="contactGender" value="female">Female</label>
+                    </div><br>
+                    
+                    <label for="contactComment">Comment</label><br>
+                    <textarea id="contactComment" rows="5" cols="50"></textarea><br><br>
+
+                    <button type="button" onclick="validateContact()">Search</button>
+                </form>
+
+                <div class="result">
+                    <p id="contactResult"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Travel Deals. All rights reserved.</p>
+            <p>Adam McCutcheon (AMM200015), Sherwin Navai (SXN161630), Anthony Tran (HXT200010)</p>
+        </div>
+    </body>
 </html>

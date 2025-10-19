@@ -1,183 +1,84 @@
+<!-- Adam McCutcheon -->
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Travel Deals - Home</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    
-  </head>
-  <body>
-    <!-- ===== Header ===== -->
-    <!-- ===== Header & Navigation (FIXED) ===== -->
-<header class="main-header">
-  <div class="logo">✈️ Travel Deals</div>
-  <nav class="navbar">
-    <a href="index.html" class="active">Home</a>
-    <a href="stays.html">Stays</a>
-    <a href="flights.html">Flights</a>
-    <a href="cars.html">Cars</a>
-    <a href="cruises.html">Cruises</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
-</header>
+    <head>
+        <meta charset="UTF-8">
+        <title>Travel Deals - Book</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="../js/script.js" defer></script>
+        <script src="../js/book.js" defer></script>
+    </head>
 
+    <body>
+        <div class="header">
+            <h1>✈️ Travel Deals</h1>
+        </div>
 
-<p id="datetime"></p>
+        <div class="navbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="stays.html">Stays</a>
+            <a href="flights.html">Flights</a>
+            <a href="cars.html">Cars</a>
+            <a href="cruises.html">Cruises</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
 
-    <!-- ===== Layout with Sidebar and Main ===== -->
-<div style="display: flex; margin-top: 80px;">  <!-- Add top margin to clear fixed header -->
-  </aside>
+        <div class="row">
+            <div class="sidebar">
+                <h2>Current Local Time</h2>
 
-      <!-- Main Content -->
-      <main style="flex: 1;">
-        <!-- ===== Hero Section ===== -->
-        <section class="hero">
-          <div class="hero-content">
-            <h1>Discover Your Next Adventure</h1>
-            <p>Book stays, flights, cars, and cruises — all in one place.</p>
-            
-            <!-- === Extended Flight Booking === -->
-            <div class="search-box">
-              <label for="tripType">Trip Type:</label>
-              <select id="tripType">
-                <option value="oneway">One Way</option>
-                <option value="round">Round Trip</option>
-              </select>
+                <p id="datetime"></p>
 
-              <div class="search-wrapper">
-                <input type="text" id="searchInput" placeholder="Origin" autocomplete="off" />
-                <input type="text" id="destinationInput" placeholder="Destination" autocomplete="off" />
-                <div id="homeSuggestions"></div>
-              </div>
+                <h2>Customize Your View</h2>
+                
+                <label for="fontSizeRange">Font Size</label><br><br>
+                <input type="range" id="fontSizeRange" min="12" max="24" value="16">
 
-              <label for="searchDate">Departure Date:</label>
-              <input type="date" id="searchDate" />
-
-              <div id="returnDateWrapper" style="display:none;">
-                <label for="returnDate">Return Date:</label>
-                <input type="date" id="returnDate" />
-              </div>
-
-      <!-- Passenger icon -->
-      <div style="text-align:center; margin-top:25px;">
-  <img
-    src="https://media.istockphoto.com/id/1425171365/vector/person-travel-with-suitcase-tourist-line-icon-vacation-journey-with-bag-vector-outline-sign.jpg?s=612x612&w=0&k=20&c=0Nv0-Br5fcfJtdyPfmUMtqnkz1dYpi5ay0jFYRpz638="
-    alt="Passengers"
-    width="45"
-    style="filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));"
-    title="Passenger Selection"
-  />
-</div>
-
-<!-- Passenger form (always visible, styled cleanly) -->
-<div id="passengerForm" style="
-  display:block;
-  margin-top:20px;
-  padding:20px;
-  border-radius:12px;
-  background:rgba(255,255,255,0.8);
-  backdrop-filter:blur(6px);
-  box-shadow:0 2px 10px rgba(0,0,0,0.15);
-  width:fit-content;
-  margin-left:auto;
-  margin-right:auto;
-  text-align:left;
-  font-size:15px;
-">
-  <label style="display:block; margin-bottom:8px;">Adults</label>
-  <input type="number" id="fAdults" min="0" max="4" style="margin-bottom:12px; width:80px;" />
-
-  <label style="display:block; margin-bottom:8px;">Children</label>
-  <input type="number" id="fChildren" min="0" max="4" style="margin-bottom:12px; width:80px;" />
-
-  <label style="display:block; margin-bottom:8px;">Infants</label>
-  <input type="number" id="fInfants" min="0" max="4" style="margin-bottom:12px; width:80px;" />
-</div>
-
-              <!-- ✅ Updated button with validation -->
-              <button id="searchBtn" onclick="validateHomeBooking()">Search</button>
+                <br><br>
+                
+                <label for="bgColorPicker">Background Color</label><br><br>
+                <input type="color" id="bgColorPicker" value="#ffffff">
             </div>
 
-            <!-- Display search results -->
-            <div id="searchResults"></div>
-          </div>
-        </section>
+            <div class="mainContent">
+                <h2>Book Your Trip</h2>
 
-        <!-- ===== Featured Categories ===== -->
-        <section class="categories">
-          <h2>Explore Our Services</h2>
-          <div class="category-grid">
-            <div class="category-card">
-              <img src="https://i.pinimg.com/736x/b1/5f/25/b15f257289f1d06d0e4dd4fc332de429.jpg" alt="Stays" />
-              <h3>🏨 Stays</h3>
-              <p>Find comfort and luxury at top-rated hotels and resorts.</p>
-              <a href="stays.html" class="btn">Book your stay</a>
-            </div>
-            <div class="category-card">
-              <img src="https://static0.simpleflyingimages.com/wordpress/wp-content/uploads/2023/12/bg_main.jpeg" alt="Flights" />
-              <h3>✈️ Flights</h3>
-              <p>Get the best flight deals for destinations across the globe.</p>
-              <a href="flights.html" class="btn">Book your flight</a>
-            </div>
-            <div class="category-card">
-              <img src="https://luxurytravelmom.com/wp-content/uploads/2011/09/luxury-hotel-house-car-750x496.png" alt="Cars" />
-              <h3>🚗 Cars</h3>
-              <p>Rent cars easily from local and international brands.</p>
-              <a href="cars.html" class="btn">Book your car</a>
-            </div>
-            <div class="category-card">
-              <img src="https://robbreport.com/wp-content/uploads/2025/07/2.HeroLuminara.jpg?w=1024" alt="Cruises" />
-              <h3>🚢 Cruises</h3>
-              <p>Sail away to paradise with our exclusive cruise packages.</p>
-              <a href="cruises.html" class="btn">Book your cruises</a>
-            </div>
-          </div>
-        </section>
+                <form id="bookForm" class="form">
+                    <label for="bookType">Trip Type</label><br>
+                    <select id="bookType">
+                        <option value="oneway">One Way</option>
+                        <option value="round">Round Trip</option>
+                    </select><br><br>
 
-        <!-- ===== Featured Deals Section ===== -->
-        <section class="deals">
-          <h2>🔥 Popular Travel Deals</h2>
-          <div class="deal-grid">
-            <div class="deal-card">
-              <img src="https://plus.unsplash.com/premium_photo-1725408106567-a77bd9beff7c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bG9zJTIwYW5nZWxlc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000" alt="Los Angeles" />
-              <div class="deal-info">
-                <h3>Los Angeles Getaway</h3>
-                <p>3 nights | Flight + Hotel | from <strong>$599</strong></p>
-              </div>
-            </div>
-            <div class="deal-card">
-              <img src="https://www.texasobserver.org/wp-content/uploads/2022/12/Austin-Skyline-shutterstock_681676399-scaled.jpg" alt="Austin" />
-              <div class="deal-info">
-                <h3>Austin City Escape</h3>
-                <p>2 nights | Car + Stay | from <strong>$399</strong></p>
-              </div>
-            </div>
-            <div class="deal-card">
-              <img src="https://wallpapers.com/images/hd/cruise-ship-bahamas-port-vxep5hs92kfce5ea.jpg" alt="Bahamas Cruise" />
-              <div class="deal-info">
-                <h3>Bahamas Cruise</h3>
-                <p>5 days | Balcony Suite | from <strong>$899</strong></p>
-              </div>
-            </div>
-          </div>
-        </section>
+                    <label for="bookOriginCity">City</label><br>
+                    <input type="text" id="bookOriginCity" list="cities"><br><br>
 
-        <!-- ===== Settings Section ===== -->
-        <section class="settings">
-          <h2>🛠 Customize Your View</h2>
-          <label for="fontSizeRange">Font Size:</label>
-          <input type="range" id="fontSizeRange" min="12" max="24" value="16">
+                    <label for="bookDestinationCity">City</label><br>
+                    <input type="text" id="bookDestinationCity" list="cities"><br><br>
 
-          <label for="bgColorPicker">Background Color:</label>
-          <input type="color" id="bgColorPicker" value="#ffffff">
-        </section>
-      </main>
-    </div>
+                    <!-- Placeholder datalist to be populated by stays.js -->
+                    <datalist id="cities"></datalist>
+                    
+                    <label for="bookDepartureDeparting">Departure for Departing Flight</label><br>
+                    <input type="date" id="bookDepartureDeparting" value="2024-09-01"><br><br>
+                    
+                    <label id="bDALabel" for="bookDepartureArriving" hidden>Departure for Arriving Flight</label><br>
+                    <input type="date" id="bookDepartureArriving" value="2024-09-02" hidden><br><br>
 
-    <!-- ===== Footer ===== -->
-    <footer>
-      <p>© 2025 Travel Deals. All rights reserved.</p>
-    </footer>
-    <script src="../js/script.js"></script>
-  </body>
+                    <button type="button" onclick="validateBook()">Search</button>
+                </form>
+
+                <div class="result">
+                    <p id="bookResult"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Travel Deals. All rights reserved.</p>
+            <p>Adam McCutcheon (AMM200015), Sherwin Navai (SXN161630), Anthony Tran (HXT200010)</p>
+        </div>
+    </body>
 </html>
