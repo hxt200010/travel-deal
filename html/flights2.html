@@ -4,10 +4,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Travel Deals - Flights</title>
+        <title>Travel Deals - Stays</title>
         <link rel="stylesheet" href="../css/style2.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="../js/script2.js" defer></script>
-        <script src="../js/stays.js" defer></script>
+        <script src="../js/flights.js" defer></script>
     </head>
 
     <body>
@@ -17,8 +18,8 @@
 
         <div class="navbar">
             <a href="index.html">Home</a>
-            <a href="stays2.html">Stays</a>
-            <a href="flights.html" class="active">Flights</a>
+            <a href="stays2.html" class="active">Stays</a>
+            <a href="flights.html">Flights</a>
             <a href="cars2.html">Cars</a>
             <a href="cruises2.html">Cruises</a>
             <a href="contact.html">Contact Us</a>
@@ -44,33 +45,36 @@
             <div class="mainContent">
                 <h2>Book Your Flight</h2>
 
-                <form id="flightForm" class="form">
-                    <label for="stayCity">City</label>
-                    <input type="text" id="stayCity" list="cities"><br><br>
+                <img id="passengerIcon" src="../images/passenger.jpg" alt="Passengers" width="45" title="Add passengers">
 
-                    <!-- Placeholder datalist to be populated by stays.js -->
+                <br><br>
+
+                <form id="flightForm" class="form" hidden>
+                    <label for="flightOriginCity">Origin City</label>
+                    <input type="text" id="flightOriginCity" list="cities"><br><br>
+                    
+                    <label for="flightDestinationCity">Destination City</label>
+                    <input type="text" id="flightDestinationCity" list="cities"><br><br>
+
                     <datalist id="cities"></datalist>
                     
-                    <label for="stayCheckIn">Check in</label>
-                    <input type="date" id="stayCheckIn" value="2024-09-01"><br><br>
+                    <label for="flightDeparture">Departure</label>
+                    <input type="date" id="flightDeparture" value="2024-09-01"><br><br>
                     
-                    <label for="stayCheckOut">Check out</label>
-                    <input type="date" id="stayCheckOut" value="2024-09-02"><br><br>
+                    <label for="flightAdults">Adults</label>
+                    <input type="number" id="flightAdults" value="1" min="1"><br><br>
 
-                    <label for="stayAdults">Adults</label>
-                    <input type="number" id="stayAdults" value="1" min="1"><br><br>
+                    <label for="flightsChildren">Children</label>
+                    <input type="number" id="flightChildren" value="0" min="0"><br><br>
 
-                    <label for="stayChildren">Children</label>
-                    <input type="number" id="stayChildren" value="0" min="0"><br><br>
+                    <label for="flightInfants">Infants</label>
+                    <input type="number" id="flightInfants" value="0" min="0"><br><br>
 
-                    <label for="stayInfants">Infants</label>
-                    <input type="number" id="stayInfants" value="0" min="0"><br><br>
-
-                    <button type="button" onclick="validateStays()">Search</button>
+                    <button type="button" onclick="validateFlights()">Search</button>
                 </form>
 
                 <div class="result">
-                    <p id="stayResult"></p>
+                    <p id="flightResult"></p>
                 </div>
             </div>
         </div>
