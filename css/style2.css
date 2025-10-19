@@ -86,9 +86,8 @@ body {
     padding-bottom: 7px;
 }
 
-
 /*Form Styling*/
-#contactForm {
+/* #contactForm {
   display: flex;
   flex-direction: column;
 }
@@ -160,4 +159,4 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 20px;
-}
+} */

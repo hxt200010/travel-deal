@@ -4,11 +4,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Travel Deals - Book</title>
+        <title>Travel Deals - Contact Us</title>
         <link rel="stylesheet" href="../css/style2.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="../js/script2.js" defer></script>
-        <script src="../js/book.js" defer></script>
+        <script src="../js/contact2.js" defer></script>
     </head>
 
     <body>
@@ -17,12 +17,12 @@
         </div>
 
         <div class="navbar">
-            <a href="index2.html" class="active">Home</a>
+            <a href="index2.html">Home</a>
             <a href="stays2.html">Stays</a>
             <a href="flights2.html">Flights</a>
             <a href="cars2.html">Cars</a>
             <a href="cruises2.html">Cruises</a>
-            <a href="contact2.html">Contact Us</a>
+            <a href="contact2.html" class="active">Contact Us</a>
         </div>
 
         <div class="row">
@@ -43,35 +43,35 @@
             </div>
 
             <div class="mainContent">
-                <h2>Book Your Trip</h2>
+                <h2>Contact Us</h2>
 
-                <form id="bookForm" class="form">
-                    <label for="bookType">Trip Type</label><br>
-                    <select id="bookType">
-                        <option value="oneway">One Way</option>
-                        <option value="round">Round Trip</option>
-                    </select><br><br>
-
-                    <label for="bookOriginCity">City</label><br>
-                    <input type="text" id="bookOriginCity" list="cities"><br><br>
-
-                    <label for="bookDestinationCity">City</label><br>
-                    <input type="text" id="bookDestinationCity" list="cities"><br><br>
-
-                    <!-- Placeholder datalist to be populated by stays.js -->
-                    <datalist id="cities"></datalist>
+                <form id="contactForm" class="form">
+                    <label for="contactFirstName">First Name</label><br>
+                    <input type="text" id="contactFirstName"><br><br>
                     
-                    <label for="bookDepartureDeparting">Departure for Departing Flight</label><br>
-                    <input type="date" id="bookDepartureDeparting" value="2024-09-01"><br><br>
+                    <label for="contactLastName">Last Name</label><br>
+                    <input type="text" id="contactLastName"><br><br>
                     
-                    <label id="bDALabel" for="bookDepartureArriving" hidden>Departure for Arriving Flight</label><br>
-                    <input type="date" id="bookDepartureArriving" value="2024-09-02" hidden><br><br>
+                    <label for="contactPhoneNumber">Phone Number</label><br>
+                    <input type="text" id="contactPhoneNumber"><br><br>
 
-                    <button type="button" onclick="validateBook()">Search</button>
+                    <label for="contactEmail">Email Address</label><br>
+                    <input type="text" id="contactEmail"><br><br>
+                    
+                    <div class="radioGroup">
+                        <label>Gender</label><br>
+                        <input type="radio" name="contactGender" value="male"> Male</label>
+                        <input type="radio" name="contactGender" value="female"> Female</label>
+                    </div><br><br>
+                    
+                    <label for="contactComment">Comment</label><br>
+                    <textarea id="contactComment" rows="5" cols="50"></textarea><br><br>
+
+                    <button type="button" onclick="validateContact()">Search</button>
                 </form>
 
                 <div class="result">
-                    <p id="bookResult"></p>
+                    <p id="contactResult"></p>
                 </div>
             </div>
         </div>
