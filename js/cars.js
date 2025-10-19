@@ -1,3 +1,5 @@
+// Adam McCutcheon
+
 function validateCars() {
     var city = document.getElementById("carCity").value.trim();
     var checkIn = new Date(document.getElementById("carCheckIn").value);

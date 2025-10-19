@@ -1,10 +1,12 @@
+<!-- Adam McCutcheon -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Travel Deals - Stays</title>
         <link rel="stylesheet" href="../css/style2.css">
-        <script src="../js/script.js"></script>
+        <script src="../js/script2.js" defer></script>
         <script src="../js/stays.js" defer></script>
     </head>
 
@@ -30,12 +32,12 @@
 
                 <h2>Customize Your View</h2>
                 
-                <label for="fontSizeRange">Font Size:</label><br>
+                <label for="fontSizeRange">Font Size</label><br><br>
                 <input type="range" id="fontSizeRange" min="12" max="24" value="16">
 
                 <br><br>
                 
-                <label for="bgColorPicker">Background Color:</label><br>
+                <label for="bgColorPicker">Background Color</label><br><br>
                 <input type="color" id="bgColorPicker" value="#ffffff">
             </div>
 
@@ -43,11 +45,11 @@
                 <h2>Book Your Stay</h2>
 
                 <form id="stayForm" class="form">
-                    <label for="stayCity">City:</label>
-                    <input type="text" id="stayCity" list="cities"><br>
+                    <label for="stayCity">City</label>
+                    <input type="text" id="stayCity" list="cities"><br><br>
 
                     <datalist id="cities">
-                        <option value="Dallas"></option>
+                        <!-- <option value="Dallas"></option>
                         <option value="Fort Worth"></option>
                         <option value="Houston"></option>
                         <option value="Austin"></option>
@@ -57,23 +59,23 @@
                         <option value="San Diego"></option>
                         <option value="San Jose"></option>
                         <option value="Sacramento"></option>
-                        <option value="Fresno"></option>
+                        <option value="Fresno"></option> -->
                     </datalist>
                     
-                    <label for="stayCheckIn">Check in:</label>
-                    <input type="date" id="stayCheckIn" value="2024-09-01"><br>
+                    <label for="stayCheckIn">Check in</label>
+                    <input type="date" id="stayCheckIn" value="2024-09-01"><br><br>
                     
-                    <label for="stayCheckOut">Check out:</label>
-                    <input type="date" id="stayCheckOut" value="2024-09-02"><br>
+                    <label for="stayCheckOut">Check out</label>
+                    <input type="date" id="stayCheckOut" value="2024-09-02"><br><br>
 
-                    <label for="stayAdults">Adults:</label>
-                    <input type="number" id="stayAdults" value="1" min="1"><br>
+                    <label for="stayAdults">Adults</label>
+                    <input type="number" id="stayAdults" value="1" min="1"><br><br>
 
-                    <label for="stayChildren">Children:</label>
-                    <input type="number" id="stayChildren" value="0" min="0"><br>
+                    <label for="stayChildren">Children</label>
+                    <input type="number" id="stayChildren" value="0" min="0"><br><br>
 
-                    <label for="stayInfants">Infants:</label>
-                    <input type="number" id="stayInfants" value="0" min="0"><br>
+                    <label for="stayInfants">Infants</label>
+                    <input type="number" id="stayInfants" value="0" min="0"><br><br>
 
                     <button type="button" onclick="validateStays()">Search</button>
                 </form>
