@@ -1,3 +1,5 @@
+<!-- Adam McCutcheon -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,7 +7,7 @@
         <title>Travel Deals - Cruises</title>
         <link rel="stylesheet" href="../css/style2.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="../js/script.js"></script>
+        <script src="../js/script2.js" defer></script>
         <script src="../js/cruises.js" defer></script>
     </head>
 
@@ -31,12 +33,12 @@
 
                 <h2>Customize Your View</h2>
                 
-                <label for="fontSizeRange">Font Size:</label><br>
+                <label for="fontSizeRange">Font Size</label><br><br>
                 <input type="range" id="fontSizeRange" min="12" max="24" value="16">
 
                 <br><br>
                 
-                <label for="bgColorPicker">Background Color:</label><br>
+                <label for="bgColorPicker">Background Color</label><br><br>
                 <input type="color" id="bgColorPicker" value="#ffffff">
             </div>
 
@@ -44,8 +46,8 @@
                 <h2>Book Your Cruise</h2>
 
                 <form id="cruiseForm" class="form">
-                    <label for="cruiseDestination">Destination:</label>
-                    <input type="text" id="cruiseDestination" list="destinations"><br>
+                    <label for="cruiseDestination">Destination</label>
+                    <input type="text" id="cruiseDestination" list="destinations"><br><br>
 
                     <datalist id="destinations">
                         <option value="Alaska"></option>
@@ -54,26 +56,26 @@
                         <option value="Mexico"></option>
                     </datalist>
                     
-                    <label for="cruiseDepartingEarliest">Earliest Departure:</label>
-                    <input type="date" id="cruiseDepartingEarliest" value="2024-09-01"><br>
+                    <label for="cruiseDepartingEarliest">Earliest Departure</label>
+                    <input type="date" id="cruiseDepartingEarliest" value="2024-09-01"><br><br>
                     
-                    <label for="cruiseDepartingLatest">Latest Departure:</label>
-                    <input type="date" id="cruiseDepartingLatest" value="2024-09-02"><br>
+                    <label for="cruiseDepartingLatest">Latest Departure</label>
+                    <input type="date" id="cruiseDepartingLatest" value="2024-09-02"><br><br>
                     
-                    <label for="cruiseDurationMinimum">Minimum Duration:</label>
-                    <input type="number" id="cruiseDurationMinimum" value="3" min="3"><br>
+                    <label for="cruiseDurationMinimum">Minimum Duration</label>
+                    <input type="number" id="cruiseDurationMinimum" value="3" min="3"><br><br>
                     
-                    <label for="cruiseDurationMaximum">Maximum Duration:</label>
-                    <input type="number" id="cruiseDurationMaximum" value="3" min="3"><br>
+                    <label for="cruiseDurationMaximum">Maximum Duration</label>
+                    <input type="number" id="cruiseDurationMaximum" value="3" min="3"><br><br>
 
-                    <label for="cruiseAdults">Adults:</label>
-                    <input type="number" id="cruiseAdults" value="1" min="1"><br>
+                    <label for="cruiseAdults">Adults</label>
+                    <input type="number" id="cruiseAdults" value="1" min="1"><br><br>
 
-                    <label for="cruiseChildren">Children:</label>
-                    <input type="number" id="cruiseChildren" value="0" min="0"><br>
+                    <label for="cruiseChildren">Children</label>
+                    <input type="number" id="cruiseChildren" value="0" min="0"><br><br>
 
-                    <label for="cruiseInfants">Infants:</label>
-                    <input type="number" id="cruiseInfants" value="0" min="0"><br>
+                    <label for="cruiseInfants">Infants</label>
+                    <input type="number" id="cruiseInfants" value="0" min="0"><br><br>
 
                     <button type="button" onclick="validateStays()">Search</button>
                 </form>
