@@ -1,5 +1,3 @@
-// Adam McCutcheon
-
 function validateContact() {
     var firstName = document.getElementById("contactFirstName").value.trim();
     var lastName = document.getElementById("contactLastName").value.trim();
