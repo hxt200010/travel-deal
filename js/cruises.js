@@ -1,6 +1,6 @@
 // Adam McCutcheon
 
-function validateStays() {
+function validateCruises() {
     var destination = $("#cruiseDestination").val().trim();
     var departingEarliest = new Date($("#cruiseDepartingEarliest").val());
     var departingLatest = new Date($("#cruiseDepartingLatest").val());
