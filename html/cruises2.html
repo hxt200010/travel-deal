@@ -17,7 +17,7 @@
         </div>
 
         <div class="navbar">
-            <a href="index.html">Home</a>
+            <a href="index2.html">Home</a>
             <a href="stays2.html">Stays</a>
             <a href="flights2.html">Flights</a>
             <a href="cars2.html">Cars</a>
@@ -46,7 +46,7 @@
                 <h2>Book Your Cruise</h2>
 
                 <form id="cruiseForm" class="form">
-                    <label for="cruiseDestination">Destination</label>
+                    <label for="cruiseDestination">Destination</label><br>
                     <input type="text" id="cruiseDestination" list="destinations"><br><br>
 
                     <datalist id="destinations">
@@ -56,25 +56,25 @@
                         <option value="Mexico"></option>
                     </datalist>
                     
-                    <label for="cruiseDepartingEarliest">Earliest Departure</label>
+                    <label for="cruiseDepartingEarliest">Earliest Departure</label><br>
                     <input type="date" id="cruiseDepartingEarliest" value="2024-09-01"><br><br>
                     
-                    <label for="cruiseDepartingLatest">Latest Departure</label>
+                    <label for="cruiseDepartingLatest">Latest Departure</label><br>
                     <input type="date" id="cruiseDepartingLatest" value="2024-09-02"><br><br>
                     
-                    <label for="cruiseDurationMinimum">Minimum Duration</label>
+                    <label for="cruiseDurationMinimum">Minimum Duration</label><br>
                     <input type="number" id="cruiseDurationMinimum" value="3" min="3"><br><br>
                     
-                    <label for="cruiseDurationMaximum">Maximum Duration</label>
+                    <label for="cruiseDurationMaximum">Maximum Duration</label><br>
                     <input type="number" id="cruiseDurationMaximum" value="3" min="3"><br><br>
 
-                    <label for="cruiseAdults">Adults</label>
+                    <label for="cruiseAdults">Adults</label><br>
                     <input type="number" id="cruiseAdults" value="1" min="1"><br><br>
 
-                    <label for="cruiseChildren">Children</label>
+                    <label for="cruiseChildren">Children</label><br>
                     <input type="number" id="cruiseChildren" value="0" min="0"><br><br>
 
-                    <label for="cruiseInfants">Infants</label>
+                    <label for="cruiseInfants">Infants</label><br>
                     <input type="number" id="cruiseInfants" value="0" min="0"><br><br>
 
                     <button type="button" onclick="validateCruises()">Search</button>
