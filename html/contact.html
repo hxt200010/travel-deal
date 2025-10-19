@@ -3,37 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <title>Contact Us</title>
-    <link rel="stylesheet" href="mystyle.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="../css/contactus.css" />
+    <script src="../js/script.js" defer></script>
   </head>
   <body>
-    <header>
-      <h1>Contact Us</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="stays.html">Stays</a>
-        <a href="flights.html">Flights</a>
-        <a href="cars.html">Cars</a>
-        <a href="cruises.html">Cruises</a>
-        <a href="contact.html">Contact Us</a>
-      </nav>
-    </header>
-
-    <main>
-      <p id="datetime"></p>
-      <form id="contactForm">
-        <label>First Name: <input type="text" id="firstName" /></label><br />
-        <label>Last Name: <input type="text" id="lastName" /></label><br />
-        <label>Phone: <input type="text" id="phone" /></label><br />
-        <label>Email: <input type="text" id="email" /></label><br />
-        <label
-          >Gender: <input type="radio" name="gender" value="male" /> Male
-          <input type="radio" name="gender" value="female" /> Female </label
-        ><br />
-        <label>Comment:<br /><textarea id="comment"></textarea></label><br />
-        <button type="button" onclick="validateContact()">Submit</button>
-      </form>
-      <div id="contactResult"></div>
-    </main>
+    <div>
+      <header class="main-header">
+        <h1>Contact Us</h1>
+        <nav class="navbar">
+          <a href="index.html">Home</a>
+          <a href="stays.html">Stays</a>
+          <a href="flights.html">Flights</a>
+          <a href="cars.html">Cars</a>
+          <a href="cruises.html">Cruises</a>
+          <a href="contact.html" class="active">Contact Us</a>
+        </nav>
+      </header>
+    </div>
+      
+    <div class="contacts-hero">
+      <div class="side">
+        <p id="datetime"></p>
+      </div>
+      <div class="contact-form-card">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" /><br />
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" /><br />
+          <label for="phone">Phone:</label>
+          <input type="text" id="phone" /><br />
+          <label for="email">Email:</label>
+          <input type="text" id="email" /><br />
+          <div class="radio-group">
+            <label>Gender:</label>
+            <label><input type="radio" name="gender" value="male" /> Male</label>
+            <label><input type="radio" name="gender" value="female" /> Female</label>
+          </div><br />
+          <label for="comment">Comment:</label>
+          <textarea id="comment"></textarea><br />
+          <button type="button" onclick="validateContact()">Submit</button>
+        </form>
+        <div id="contactResult"></div>
+      </div>
+    </div>
   </body>
 </html>
