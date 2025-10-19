@@ -4,134 +4,180 @@
     <meta charset="UTF-8" />
     <title>Travel Deals - Home</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/script.js" defer></script>
+    
   </head>
   <body>
-    <!-- ===== Header & Navigation ===== -->
-    <header class="main-header">
-      <div class="logo">✈️ Travel Deals</div>
-      <nav class="navbar">
-        <a href="index.html" class="active">Home</a>
-        <a href="stays.html">Stays</a>
-        <a href="flights.html">Flights</a>
-        <a href="cars.html">Cars</a>
-        <a href="cruises.html">Cruises</a>
-        <a href="contact.html">Contact Us</a>
-      </nav>
-    </header>
+    <!-- ===== Header ===== -->
+    <!-- ===== Header & Navigation (FIXED) ===== -->
+<header class="main-header">
+  <div class="logo">✈️ Travel Deals</div>
+  <nav class="navbar">
+    <a href="index.html" class="active">Home</a>
+    <a href="stays.html">Stays</a>
+    <a href="flights.html">Flights</a>
+    <a href="cars.html">Cars</a>
+    <a href="cruises.html">Cruises</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+</header>
 
-    <!-- ===== Hero Section ===== -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Discover Your Next Adventure</h1>
-        <p>Book stays, flights, cars, and cruises — all in one place.</p>
-        <div class="search-box">
-          <div class="search-wrapper">
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Where to?"
-              autocomplete="off"
-            />
-            <div id="homeSuggestions"></div>
+
+<p id="datetime"></p>
+
+    <!-- ===== Layout with Sidebar and Main ===== -->
+<div style="display: flex; margin-top: 80px;">  <!-- Add top margin to clear fixed header -->
+  </aside>
+
+      <!-- Main Content -->
+      <main style="flex: 1;">
+        <!-- ===== Hero Section ===== -->
+        <section class="hero">
+          <div class="hero-content">
+            <h1>Discover Your Next Adventure</h1>
+            <p>Book stays, flights, cars, and cruises — all in one place.</p>
+            
+            <!-- === Extended Flight Booking === -->
+            <div class="search-box">
+              <label for="tripType">Trip Type:</label>
+              <select id="tripType">
+                <option value="oneway">One Way</option>
+                <option value="round">Round Trip</option>
+              </select>
+
+              <div class="search-wrapper">
+                <input type="text" id="searchInput" placeholder="Origin" autocomplete="off" />
+                <input type="text" id="destinationInput" placeholder="Destination" autocomplete="off" />
+                <div id="homeSuggestions"></div>
+              </div>
+
+              <label for="searchDate">Departure Date:</label>
+              <input type="date" id="searchDate" />
+
+              <div id="returnDateWrapper" style="display:none;">
+                <label for="returnDate">Return Date:</label>
+                <input type="date" id="returnDate" />
+              </div>
+
+      <!-- Passenger icon -->
+      <div style="text-align:center; margin-top:25px;">
+  <img
+    src="https://media.istockphoto.com/id/1425171365/vector/person-travel-with-suitcase-tourist-line-icon-vacation-journey-with-bag-vector-outline-sign.jpg?s=612x612&w=0&k=20&c=0Nv0-Br5fcfJtdyPfmUMtqnkz1dYpi5ay0jFYRpz638="
+    alt="Passengers"
+    width="45"
+    style="filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));"
+    title="Passenger Selection"
+  />
+</div>
+
+<!-- Passenger form (always visible, styled cleanly) -->
+<div id="passengerForm" style="
+  display:block;
+  margin-top:20px;
+  padding:20px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(6px);
+  box-shadow:0 2px 10px rgba(0,0,0,0.15);
+  width:fit-content;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+  font-size:15px;
+">
+  <label style="display:block; margin-bottom:8px;">Adults</label>
+  <input type="number" id="fAdults" min="0" max="4" style="margin-bottom:12px; width:80px;" />
+
+  <label style="display:block; margin-bottom:8px;">Children</label>
+  <input type="number" id="fChildren" min="0" max="4" style="margin-bottom:12px; width:80px;" />
+
+  <label style="display:block; margin-bottom:8px;">Infants</label>
+  <input type="number" id="fInfants" min="0" max="4" style="margin-bottom:12px; width:80px;" />
+</div>
+
+              <!-- ✅ Updated button with validation -->
+              <button id="searchBtn" onclick="validateHomeBooking()">Search</button>
+            </div>
+
+            <!-- Display search results -->
+            <div id="searchResults"></div>
           </div>
-          <input type="date" id="searchDate" />
-          <button id="searchBtn">Search Deals</button>
-        </div>
+        </section>
 
-        <!-- Display search results -->
-        <div id="searchResults"></div>
-
-        <!-- Display search results -->
-        <div id="searchResults"></div>
-
-        <p id="datetime"></p>
-      </div>
-    </section>
-
-    <!-- ===== Featured Categories ===== -->
-    <section class="categories">
-      <h2>Explore Our Services</h2>
-      <div class="category-grid">
-        <div class="category-card">
-          <img
-            src="https://i.pinimg.com/736x/b1/5f/25/b15f257289f1d06d0e4dd4fc332de429.jpg"
-            alt="Stays"
-          />
-          <h3>🏨 Stays</h3>
-          <p>Find comfort and luxury at top-rated hotels and resorts.</p>
-          <a href="stays.html" class="btn">Book your stay</a>
-        </div>
-        <div class="category-card">
-          <img
-            src="https://static0.simpleflyingimages.com/wordpress/wp-content/uploads/2023/12/bg_main.jpeg"
-            alt="Flights"
-          />
-          <h3>✈️ Flights</h3>
-          <p>Get the best flight deals for destinations across the globe.</p>
-          <a href="flights.html" class="btn">Book your flight</a>
-        </div>
-        <div class="category-card">
-          <img
-            src="https://luxurytravelmom.com/wp-content/uploads/2011/09/luxury-hotel-house-car-750x496.png"
-            alt="Cars"
-          />
-          <h3>🚗 Cars</h3>
-          <p>Rent cars easily from local and international brands.</p>
-          <a href="cars.html" class="btn">Book your car</a>
-        </div>
-        <div class="category-card">
-          <img
-            src="https://robbreport.com/wp-content/uploads/2025/07/2.HeroLuminara.jpg?w=1024"
-            alt="Cruises"
-          />
-          <h3>🚢 Cruises</h3>
-          <p>Sail away to paradise with our exclusive cruise packages.</p>
-          <a href="cruise.html" class="btn">Book your cruises</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Featured Deals Section ===== -->
-    <section class="deals">
-      <h2>🔥 Popular Travel Deals</h2>
-      <div class="deal-grid">
-        <div class="deal-card">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1725408106567-a77bd9beff7c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bG9zJTIwYW5nZWxlc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000"
-            alt="Los Angeles"
-          />
-          <div class="deal-info">
-            <h3>Los Angeles Getaway</h3>
-            <p>3 nights | Flight + Hotel | from <strong>$599</strong></p>
+        <!-- ===== Featured Categories ===== -->
+        <section class="categories">
+          <h2>Explore Our Services</h2>
+          <div class="category-grid">
+            <div class="category-card">
+              <img src="https://i.pinimg.com/736x/b1/5f/25/b15f257289f1d06d0e4dd4fc332de429.jpg" alt="Stays" />
+              <h3>🏨 Stays</h3>
+              <p>Find comfort and luxury at top-rated hotels and resorts.</p>
+              <a href="stays.html" class="btn">Book your stay</a>
+            </div>
+            <div class="category-card">
+              <img src="https://static0.simpleflyingimages.com/wordpress/wp-content/uploads/2023/12/bg_main.jpeg" alt="Flights" />
+              <h3>✈️ Flights</h3>
+              <p>Get the best flight deals for destinations across the globe.</p>
+              <a href="flights.html" class="btn">Book your flight</a>
+            </div>
+            <div class="category-card">
+              <img src="https://luxurytravelmom.com/wp-content/uploads/2011/09/luxury-hotel-house-car-750x496.png" alt="Cars" />
+              <h3>🚗 Cars</h3>
+              <p>Rent cars easily from local and international brands.</p>
+              <a href="cars.html" class="btn">Book your car</a>
+            </div>
+            <div class="category-card">
+              <img src="https://robbreport.com/wp-content/uploads/2025/07/2.HeroLuminara.jpg?w=1024" alt="Cruises" />
+              <h3>🚢 Cruises</h3>
+              <p>Sail away to paradise with our exclusive cruise packages.</p>
+              <a href="cruises.html" class="btn">Book your cruises</a>
+            </div>
           </div>
-        </div>
-        <div class="deal-card">
-          <img
-            src="https://www.texasobserver.org/wp-content/uploads/2022/12/Austin-Skyline-shutterstock_681676399-scaled.jpg"
-            alt="Austin"
-          />
-          <div class="deal-info">
-            <h3>Austin City Escape</h3>
-            <p>2 nights | Car + Stay | from <strong>$399</strong></p>
+        </section>
+
+        <!-- ===== Featured Deals Section ===== -->
+        <section class="deals">
+          <h2>🔥 Popular Travel Deals</h2>
+          <div class="deal-grid">
+            <div class="deal-card">
+              <img src="https://plus.unsplash.com/premium_photo-1725408106567-a77bd9beff7c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bG9zJTIwYW5nZWxlc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000" alt="Los Angeles" />
+              <div class="deal-info">
+                <h3>Los Angeles Getaway</h3>
+                <p>3 nights | Flight + Hotel | from <strong>$599</strong></p>
+              </div>
+            </div>
+            <div class="deal-card">
+              <img src="https://www.texasobserver.org/wp-content/uploads/2022/12/Austin-Skyline-shutterstock_681676399-scaled.jpg" alt="Austin" />
+              <div class="deal-info">
+                <h3>Austin City Escape</h3>
+                <p>2 nights | Car + Stay | from <strong>$399</strong></p>
+              </div>
+            </div>
+            <div class="deal-card">
+              <img src="https://wallpapers.com/images/hd/cruise-ship-bahamas-port-vxep5hs92kfce5ea.jpg" alt="Bahamas Cruise" />
+              <div class="deal-info">
+                <h3>Bahamas Cruise</h3>
+                <p>5 days | Balcony Suite | from <strong>$899</strong></p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="deal-card">
-          <img
-            src="https://wallpapers.com/images/hd/cruise-ship-bahamas-port-vxep5hs92kfce5ea.jpg"
-            alt="Bahamas Cruise"
-          />
-          <div class="deal-info">
-            <h3>Bahamas Cruise</h3>
-            <p>5 days | Balcony Suite | from <strong>$899</strong></p>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
+
+        <!-- ===== Settings Section ===== -->
+        <section class="settings">
+          <h2>🛠 Customize Your View</h2>
+          <label for="fontSizeRange">Font Size:</label>
+          <input type="range" id="fontSizeRange" min="12" max="24" value="16">
+
+          <label for="bgColorPicker">Background Color:</label>
+          <input type="color" id="bgColorPicker" value="#ffffff">
+        </section>
+      </main>
+    </div>
 
     <!-- ===== Footer ===== -->
     <footer>
       <p>© 2025 Travel Deals. All rights reserved.</p>
     </footer>
+    <script src="../js/script.js"></script>
   </body>
 </html>

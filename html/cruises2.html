@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Travel Deals - Cruises</title>
+        <link rel="stylesheet" href="../css/style2.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="../js/script.js"></script>
+        <script src="../js/cruises.js" defer></script>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>✈️ Travel Deals</h1>
+        </div>
+
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="stays2.html">Stays</a>
+            <a href="flights.html">Flights</a>
+            <a href="cars2.html">Cars</a>
+            <a href="cruises2.html" class="active">Cruises</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="row">
+            <div class="sidebar">
+                <h2>Current Local Time</h2>
+
+                <p id="datetime"></p>
+
+                <h2>Customize Your View</h2>
+                
+                <label for="fontSizeRange">Font Size:</label><br>
+                <input type="range" id="fontSizeRange" min="12" max="24" value="16">
+
+                <br><br>
+                
+                <label for="bgColorPicker">Background Color:</label><br>
+                <input type="color" id="bgColorPicker" value="#ffffff">
+            </div>
+
+            <div class="mainContent">
+                <h2>Book Your Cruise</h2>
+
+                <form id="cruiseForm" class="form">
+                    <label for="cruiseDestination">Destination:</label>
+                    <input type="text" id="cruiseDestination" list="destinations"><br>
+
+                    <datalist id="destinations">
+                        <option value="Alaska"></option>
+                        <option value="Bahamas"></option>
+                        <option value="Europe"></option>
+                        <option value="Mexico"></option>
+                    </datalist>
+                    
+                    <label for="cruiseDepartingEarliest">Earliest Departure:</label>
+                    <input type="date" id="cruiseDepartingEarliest" value="2024-09-01"><br>
+                    
+                    <label for="cruiseDepartingLatest">Latest Departure:</label>
+                    <input type="date" id="cruiseDepartingLatest" value="2024-09-02"><br>
+                    
+                    <label for="cruiseDurationMinimum">Minimum Duration:</label>
+                    <input type="number" id="cruiseDurationMinimum" value="3" min="3"><br>
+                    
+                    <label for="cruiseDurationMaximum">Maximum Duration:</label>
+                    <input type="number" id="cruiseDurationMaximum" value="3" min="3"><br>
+
+                    <label for="cruiseAdults">Adults:</label>
+                    <input type="number" id="cruiseAdults" value="1" min="1"><br>
+
+                    <label for="cruiseChildren">Children:</label>
+                    <input type="number" id="cruiseChildren" value="0" min="0"><br>
+
+                    <label for="cruiseInfants">Infants:</label>
+                    <input type="number" id="cruiseInfants" value="0" min="0"><br>
+
+                    <button type="button" onclick="validateStays()">Search</button>
+                </form>
+
+                <div class="result">
+                    <p id="cruiseResult"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Travel Deals. All rights reserved.</p>
+        </div>
+    </body>
+</html>

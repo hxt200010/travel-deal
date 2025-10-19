@@ -3,57 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <title>Travel Deals - Cruises</title>
-    <link rel="stylesheet" href="mystyle.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js" defer></script>
+    <script src="../js/script.js" defer></script>
   </head>
+
   <body>
-    <header>
-      <h1>Cruises</h1>
-      <nav>
+    <!-- ===== Header & Navigation ===== -->
+    <header class="main-header">
+      <div class="logo">✈️ Travel Deals</div>
+      <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="stays.html">Stays</a>
         <a href="flights.html">Flights</a>
         <a href="cars.html">Cars</a>
-        <a href="cruises.html">Cruises</a>
+        <a href="cruises.html" class="active">Cruises</a>
         <a href="contact.html">Contact Us</a>
       </nav>
     </header>
 
-    <main>
-      <p id="datetime"></p>
-      <form id="cruiseForm">
-        <label
-          >Destination:
-          <select id="destinationCruise">
-            <option>Alaska</option>
-            <option>Bahamas</option>
-            <option>Europe</option>
-            <option>Mexico</option>
-          </select> </label
-        ><br />
-        <label>Departing Between: <input type="date" id="departCruise" /></label
-        ><br />
-        <label
-          >Min Duration (days):
-          <input type="number" id="minDays" min="3" /></label
-        ><br />
-        <label
-          >Max Duration (days):
-          <input type="number" id="maxDays" max="10" /></label
-        ><br />
-        <label
-          >Adults: <input type="number" id="cAdults" min="0" max="2" /></label
-        ><br />
-        <label
-          >Children:
-          <input type="number" id="cChildren" min="0" max="2" /></label
-        ><br />
-        <label>Infants: <input type="number" id="cInfants" min="0" /></label
-        ><br />
-        <button type="button" id="cruiseSubmit">Submit</button>
-      </form>
-      <div id="cruiseResult"></div>
+    <!-- ===== Hero Section ===== -->
+    <section
+      class="flight-hero"
+      style="background:url('https://wallpapers.com/images/hd/cruise-ship-bahamas-port-vxep5hs92kfce5ea.jpg') center/cover no-repeat;"
+    >
+      <div class="flight-hero-content">
+        <h1>Embark on Your Dream Cruise</h1>
+        <p>Sail away to paradise with exclusive luxury cruise deals.</p>
+      </div>
+    </section>
+
+    <!-- ===== Cruise Booking Section ===== -->
+    <main style="margin-top: 0;">
+      <section class="flight-section">
+        <div class="flight-form-card">
+          <h2>🚢 Find Your Perfect Cruise</h2>
+          <form id="cruiseForm">
+            <div class="form-grid">
+              <div class="form-item">
+                <label>Destination</label>
+                <select id="destinationCruise">
+                  <option>Alaska</option>
+                  <option>Bahamas</option>
+                  <option>Europe</option>
+                  <option>Mexico</option>
+                </select>
+              </div>
+
+              <div class="form-item">
+                <label>Departing Between</label>
+                <input type="date" id="departCruise" />
+              </div>
+
+              <div class="form-item">
+                <label>Min Duration (days)</label>
+                <input type="number" id="minDays" min="3" />
+              </div>
+
+              <div class="form-item">
+                <label>Max Duration (days)</label>
+                <input type="number" id="maxDays" max="10" />
+              </div>
+
+              <div class="form-item">
+                <label>Adults</label>
+                <input type="number" id="cAdults" min="0" max="2" />
+              </div>
+
+              <div class="form-item">
+                <label>Children</label>
+                <input type="number" id="cChildren" min="0" max="2" />
+              </div>
+
+              <div class="form-item">
+                <label>Infants</label>
+                <input type="number" id="cInfants" min="0" />
+              </div>
+            </div>
+
+            <button type="button" id="cruiseSubmit" class="search-btn">
+              Submit
+            </button>
+          </form>
+
+          <p id="cruiseResult"></p>
+          <p id="datetime"></p>
+        </div>
+      </section>
     </main>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+      <p>© 2025 Travel Deals. All rights reserved.</p>
+    </footer>
   </body>
 </html>
