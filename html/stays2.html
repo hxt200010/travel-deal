@@ -5,6 +5,7 @@
         <title>Travel Deals - Stays</title>
         <link rel="stylesheet" href="../css/style2.css">
         <script src="../js/script.js"></script>
+        <script src="../js/stays.js" defer></script>
     </head>
 
     <body>
@@ -16,8 +17,8 @@
             <a href="index.html">Home</a>
             <a href="stays2.html" class="active">Stays</a>
             <a href="flights.html">Flights</a>
-            <a href="cars.html">Cars</a>
-            <a href="cruises.html">Cruises</a>
+            <a href="cars2.html">Cars</a>
+            <a href="cruises2.html">Cruises</a>
             <a href="contact.html">Contact Us</a>
         </div>
 
@@ -43,28 +44,42 @@
 
                 <form id="stayForm" class="form">
                     <label for="stayCity">City:</label>
-                    <input type="text" id="stayCity"><br>
+                    <input type="text" id="stayCity" list="cities"><br>
+
+                    <datalist id="cities">
+                        <option value="Dallas"></option>
+                        <option value="Fort Worth"></option>
+                        <option value="Houston"></option>
+                        <option value="Austin"></option>
+                        <option value="San Antonio"></option>
+                        <option value="Los Angeles"></option>
+                        <option value="San Francisco"></option>
+                        <option value="San Diego"></option>
+                        <option value="San Jose"></option>
+                        <option value="Sacramento"></option>
+                        <option value="Fresno"></option>
+                    </datalist>
                     
-                    <label for="stayCheckIn">Check-in:</label>
-                    <input type="date" id="stayCheckIn"><br>
+                    <label for="stayCheckIn">Check in:</label>
+                    <input type="date" id="stayCheckIn" value="2024-09-01"><br>
                     
-                    <label for="stayCheckOut">Check-out:</label>
-                    <input type="date" id="stayCheckOut"><br>
+                    <label for="stayCheckOut">Check out:</label>
+                    <input type="date" id="stayCheckOut" value="2024-09-02"><br>
 
                     <label for="stayAdults">Adults:</label>
-                    <input type="number" id="stayAdults" min="0"><br>
+                    <input type="number" id="stayAdults" value="1" min="1"><br>
 
                     <label for="stayChildren">Children:</label>
-                    <input type="number" id="stayChildren"><br>
+                    <input type="number" id="stayChildren" value="0" min="0"><br>
 
                     <label for="stayInfants">Infants:</label>
-                    <input type="number" id="stayInfants"><br>
+                    <input type="number" id="stayInfants" value="0" min="0"><br>
 
                     <button type="button" onclick="validateStays()">Search</button>
                 </form>
 
-                <div id="stayResult" class="result">
-                    <p id="result"></p>
+                <div class="result">
+                    <p id="stayResult"></p>
                 </div>
             </div>
         </div>

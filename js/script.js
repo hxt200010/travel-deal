@@ -150,41 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-
-
-
-
-
-// ===================== 🏨 Stays Page Validation (No Regex) =====================
-function validateStays() {
-  const city = document.getElementById("stayCity").value.trim();
-  const checkIn = new Date(document.getElementById("checkIn").value);
-  const checkOut = new Date(document.getElementById("checkOut").value);
-  const adults = parseInt(document.getElementById("adults").value) || 0;
-  const children = parseInt(document.getElementById("children").value) || 0;
-  const infants = parseInt(document.getElementById("infants").value) || 0;
-
-  const validCities = [
-    "Dallas", "Austin", "Houston", "San Antonio",
-    "Los Angeles", "San Francisco", "San Diego"
-  ];
-  const start = new Date("2024-09-01");
-  const end = new Date("2024-12-01");
-
-  if (!validCities.includes(city))
-    return alert("City must be in Texas or California.");
-  if (checkIn < start || checkOut > end || checkIn >= checkOut)
-    return alert("Invalid check-in/check-out date range.");
-  const guests = adults + children;
-  if (guests > 2 && infants === 0)
-    return alert("Maximum 2 guests per room (infants allowed to exceed).");
-
-  const rooms = Math.ceil(guests / 2);
-  document.getElementById("stayResult").textContent =
-    `🏨 Stay booked in ${city} for ${guests} guests. You need ${rooms} room(s).`;
-}
-
 // ===================== 🚗 Cars Page Validation (Using DOM Methods) =====================
 function validateCars() {
   const city = document.getElementById("carCity").value.trim();
