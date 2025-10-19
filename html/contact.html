@@ -4,12 +4,26 @@
     <meta charset="UTF-8" />
     <title>Contact Us</title>
     <link rel="stylesheet" href="../css/style2.css" />
-    <script src="../js/script.js" defer></script>
+    <script src="../js/contact.js" defer></script>
   </head>
   <body>
     <div>
       <header class="header">
         <h1>Contact Us</h1>
+        <div class="controls">
+          <label for="fontSizeSelect">Font Size:</label>
+          <select id="fontSizeSelect">
+            <option value="14px">Small</option>
+            <option value="16px" selected>Medium</option>
+            <option value="18px">Large</option>
+          </select>
+          <label for="bgColorSelect">Background Color:</label>
+          <select id="bgColorSelect">
+            <option value="white" selected>White</option>
+            <option value="#f0f0f0">Light Gray</option>
+            <option value="#e6f3fa">Light Blue</option>
+          </select>
+        </div>
         <nav class="navbar">
           <a href="index.html">Home</a>
           <a href="stays.html">Stays</a>

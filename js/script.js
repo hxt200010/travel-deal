@@ -1,4 +1,4 @@
-// ===================== 🕒 Display Current Local Date/Time =====================
+
 function updateDateTime() {
   document.querySelectorAll("#datetime").forEach(el => {
     el.textContent = "Local time: " + new Date().toLocaleString();
@@ -6,7 +6,6 @@ function updateDateTime() {
 }
 setInterval(updateDateTime, 1000);
 
-// ===================== 🎨 Font Size and Background Color =====================
 document.addEventListener("DOMContentLoaded", () => {
   const fontSizeRange = document.getElementById("fontSizeRange");
   const bgColorPicker = document.getElementById("bgColorPicker");
@@ -24,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ===================== 📩 Contact Us Validation (Regex) =====================
 function validateContact() {
   const f = document.getElementById("firstName").value.trim();
   const l = document.getElementById("lastName").value.trim();
@@ -54,7 +52,7 @@ function validateContact() {
     `✅ Thank you, ${f}! Your message has been submitted successfully.`;
 }
 
-// ===================== ✈️ Flights Page Validation (Regex) =====================
+
 function toggleReturnDate() {
   const trip = document.getElementById("tripType").value;
   document.getElementById("returnLabel").style.display =
@@ -150,7 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ===================== 🚗 Cars Page Validation (Using DOM Methods) =====================
 function validateCars() {
   const city = document.getElementById("carCity").value.trim();
   const type = document.getElementById("carType").value;
@@ -168,7 +165,7 @@ function validateCars() {
     `🚗 Car reserved: ${type} in ${city} from ${inDate.toDateString()} to ${outDate.toDateString()}.`;
 }
 
-// ===================== 🚢 Cruises Page Validation (Using jQuery) =====================
+
 $(function () {
   $("#cruiseSubmit").click(function () {
     const dest = $("#destinationCruise").val();
